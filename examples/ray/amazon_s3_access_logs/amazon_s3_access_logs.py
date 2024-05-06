@@ -168,10 +168,10 @@ def generate_prefix_list(prefix_size: str, start_date: datetime, end_date: datet
     """
     PrefixSize = namedtuple("PrefixSize", ["date_pattern", "rrule_size"])
     _prefixes: dict[str, PrefixSize] = {
-        "YEARLY": PrefixSize("%Y", rrule.YEARLY),
-        "MONTHLY": PrefixSize("%Y-%m", rrule.MONTHLY),
-        "DAILY": PrefixSize("%Y-%m-%d", rrule.DAILY),
-        "HOURLY": PrefixSize("%Y-%m-%d-%H", rrule.HOURLY),
+        "YEARLY": PrefixSize("%Y/", rrule.YEARLY),
+        "MONTHLY": PrefixSize("%Y/%m/", rrule.MONTHLY),
+        "DAILY": PrefixSize("%Y/%m/%d/", rrule.DAILY),
+        "HOURLY": PrefixSize("%Y/%m/%d/%H/", rrule.HOURLY),
     }
     chosen_prefix = _prefixes[prefix_size] if prefix_size is not None else _prefixes["DAILY"]
 
